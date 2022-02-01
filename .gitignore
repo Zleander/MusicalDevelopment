@@ -368,5 +368,5 @@ aux/
 # MacOS specific
 .DS_Store
 
-# exclude breaking .zip
-*.zip
+# exclude data folder, as it is too big to push to github
+data/
