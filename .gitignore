@@ -369,4 +369,4 @@ aux/
 .DS_Store
 
 # exclude breaking .zip
-.zip
+*.zip
