@@ -16,7 +16,7 @@ fig_width, fig_height = plt_settings['figure.figsize']
 
 # data:
 interesting_features = ['explicit', 'danceability','loudness','valence']
-predictors = ['explicit', 'danceability', 'energy', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature']
+predictors = ['explicit', 'danceability', 'energy', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms']
 coef_ = pd.read_csv('../dat/log_reg_coef.csv', index_col=0).to_numpy()
 train = pd.read_csv('../dat/train_set.csv')
 

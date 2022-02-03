@@ -18,7 +18,7 @@ accuracy = [0.031334553539836545, 0.04506318718521075, 0.04871070185171433, 0.07
 
 # data 2:
 interesting_features = ['explicit', 'danceability','loudness','valence']
-predictors = ['explicit', 'danceability', 'energy', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature']
+predictors = ['explicit', 'danceability', 'energy', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms']
 coef_ = pd.read_csv('../dat/lin_reg_coef.csv', index_col=0).to_numpy()
 
 N = len(names)
@@ -34,7 +34,7 @@ color0 = 'red'
 color1 = 'green'
 
 # Plotting
-b0 = ax.bar(ind, l1_losses , width, label='$L_1$-Loss (years)', color=color0)
+b0 = ax.bar(ind, l1_losses , width, label='MAE', color=color0)
 #b0 = ax.bar(ind, l2_losses , width, label='$L_2$-Loss (years)', color=color0)
 b1 = ax1.bar(ind + width, accuracy, width, label='Accuracy', color=color1)
 ax.set_xticks(ind + width / 2, names, rotation=45, horizontalalignment='right')
