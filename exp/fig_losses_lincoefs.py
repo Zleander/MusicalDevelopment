@@ -23,7 +23,7 @@ coef_ = pd.read_csv('../dat/lin_reg_coef.csv', index_col=0).to_numpy()
 
 N = len(names)
 ind = np.arange(N)
-fig, axs = plt.subplots(1,2, gridspec_kw={'width_ratios': [2, 3]})
+fig, axs = plt.subplots(1,2, figsize=(fig_width-.1, fig_height), gridspec_kw={'width_ratios': [2, 3]})
 ax, ax2 = axs
 ax1 = ax.twinx()
                        
