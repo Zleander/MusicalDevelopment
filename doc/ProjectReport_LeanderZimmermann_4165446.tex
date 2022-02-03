@@ -29,7 +29,7 @@
 \usepackage{graphicx}       % for figs
 \usepackage{amsmath}
 
-\graphicspath{ {../figs/} }  % setting figure path
+\graphicspath{ {./fig/} }  % setting figure path
 \bibliographystyle{abbrvnat}
 
 \title{Exploring the development of spotify audio features over time}
@@ -116,7 +116,7 @@ The logistic regression process provides us with a number of coefficients, that 
 \begin{figure}[t]
   \centering
   \includegraphics{losses_lincoefs}
-  \caption{\emph{Unfair} comparison of the $L_2$-Loss, i.e.  the mean absolute distance in years (lower is better) and accuracies (higher is better) of the Predictors (left) and the coefficients of the linear regression model (right). The accuracies of the linear regression models were calculated by rounding the output values to the nearest full year.}
+  \caption{\emph{Unfair} comparison of the mean absolute error in years (lower is better) and accuracies (higher is better) of the Predictors (left) and the coefficients of the linear regression model (right). The accuracies of the linear regression models were calculated by rounding the output values to the nearest full year.}
   \label{fig:losses_lincoefs}
 \end{figure}
 
