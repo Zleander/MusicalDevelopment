@@ -5,12 +5,14 @@ from sklearn import preprocessing
 from tueplots import bundles
 
 
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-plt_settings = bundles.neurips2021(usetex=False)
+plt_settings = bundles.neurips2021(usetex=False, family='serif')
 plt_settings['figure.constrained_layout.use'] = False
 plt.rcParams.update(plt_settings)
+plt.style.use('seaborn-colorblind')
 
 fig_width, fig_height = plt_settings['figure.figsize']
 
@@ -28,9 +30,12 @@ ax1, ax2 = axs
 
 year_series = np.unique((np.unique(train['year'])))
 
+j=0
+linestyles=['^-', 's-', 'o-', 'v-'] 
 for i,feature in enumerate(predictors):
     if feature in interesting_features:
-        ax1.plot(year_series, coef_[:,i], '.-', label=feature,)
+        ax1.plot(year_series, coef_[:,i],  linestyles[j], label=feature,markersize=3)
+        j += 1
     else:
         ax1.plot(year_series, coef_[:,i], '-', alpha=.3,color='grey')
     
@@ -40,10 +45,11 @@ train_[predictors] = preprocessing.StandardScaler().fit_transform(train_[predict
 
 tracks_by_year_avg = train_.groupby('year').mean()
 
-
+j=0
 for i,feature in enumerate(predictors[:-1]):
-    if feature in interesting_features:    
-        ax2.plot(year_series,tracks_by_year_avg[feature], '.-',label=feature )
+    if feature in interesting_features: 
+        ax2.plot(year_series,tracks_by_year_avg[feature], linestyles[j],label=feature,markersize=3)
+        j += 1
     else:
         ax2.plot(year_series,tracks_by_year_avg[feature], '-', alpha=.3, color='grey')
 ax2.plot(year_series,tracks_by_year_avg[predictors[-1]], '-', alpha=.3, color='grey', label='other')
@@ -60,6 +66,5 @@ ax2.legend(loc=(.4,0.85), framealpha=1)
 #ax2.legend(loc= 'lower center')
 
 ax1.tick_params(axis='x', which='both', bottom=False,labelbottom=False)
-
 plt.savefig('../doc/fig/coefs_avg.pdf',bbox_inches='tight')
-plt.show()
+#plt.show()
